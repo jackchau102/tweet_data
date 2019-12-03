@@ -7,11 +7,7 @@ from pandas.io.json import json_normalize #https://towardsdatascience.com/flatte
 import pandas as pd
 import json
 
-consumer_key = "JStINnJylOAKUs1hxGQB4IjmH";
-consumer_secret = "K0LBbNpkrO2fYzG2domSs3k6nCiSyPZDhCepTB9CHCjlpHY944";
 
-access_token = "1196832929525055488-G7nOefU8MkLVSMDNWw72sVeZNq1YDg";
-access_token_secret = "Qi8BM3NHGIslYoawrnYbq0U5fMbm7RVcbMcklU7VsZU8p";
 
 def flatten_json(y):
     out = {}
@@ -62,22 +58,21 @@ class StdOutListener(StreamListener):
             # user_info = [];
             with open(self.fetched_tweets_filename, 'a') as tf:
                 # tf.write(data);
-                print(data)
+                # print(data)
                 json_format = json.loads(data) #return an object
                 #NOTE TO SELF: geo_enabled is no longer supported: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object
 
                 if (json_format['user'] == False):
                     print("False")
-                elif (json_format['user'] and json_format['coordinates']):
+                elif (json_format['user']):
                     print("True")
-                    if (json_format['coordinates']['type'] == "Point"):
-                        id_and_tweet = {
-                            'user_id': json_format['user']['id'],
-                            'user_tweet': json_format['text'],
-                            'coordinates': json_format['coordinates']['coordinates']
-                        }
-                json_df = json_normalize(json_format)
-                json_df.to_csv(tf, header=False, encoding='utf-8') #currently writing with header
+                    id_and_tweet = {
+                        'user_id': json_format['user']['id'],
+                        'user_tweet': json_format['text'],
+                        'user_location': json_format['user']['location']
+                    }
+                    json_df = json_normalize(id_and_tweet)
+                    json_df.to_csv(tf, header=False, encoding='utf-8') #currently writing with header
                 return True
         except BaseException as e:
             with open('error.json', 'a') as tf:
