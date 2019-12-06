@@ -8,11 +8,11 @@ import pandas as pd
 import json
 import random
 
-consumer_key = "JStINnJylOAKUs1hxGQB4IjmH";
-consumer_secret = "K0LBbNpkrO2fYzG2domSs3k6nCiSyPZDhCepTB9CHCjlpHY944";
+consumer_key = "xxxxxxxx"
+consumer_secret = "xxxxxxxx"
 
-access_token = "1196832929525055488-G7nOefU8MkLVSMDNWw72sVeZNq1YDg";
-access_token_secret = "Qi8BM3NHGIslYoawrnYbq0U5fMbm7RVcbMcklU7VsZU8p";
+access_token = "xxxxxxxx"
+access_token_secret = "xxxxxxxx"
 
 # def flatten_json(y):
 #     out = {}
