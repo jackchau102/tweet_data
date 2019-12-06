@@ -4,6 +4,8 @@
 
 <p> This is a script that when run, will query the entire US and collect
 	geo-data from tweeter users.</p>
+ 
+<p> Data will be written/appended to an output file in CSV format (out.csv) </p>
 
 <p> Type of data: </p>
 
