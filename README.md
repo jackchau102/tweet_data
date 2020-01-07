@@ -1,4 +1,8 @@
-<h1> Tweet Data </h1>	
+<h1> Tweet Data </h1>
+
+<h2> Data visualization </h2>
+
+![Twitter data generated so far using Kepler.gl](/usatwitter.png)
 
 <h2> Description </h2>
 
