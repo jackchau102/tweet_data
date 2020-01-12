@@ -8,6 +8,19 @@
 
 <p> This is a script that when run, will query the entire US and collect
 	geo-data from tweeter users.</p>
+	
+<p> To run the code </p>
+
+<ol> 
+<li> Download the file </li>
+<li> Sign up for a Twitter Developer Account to receive the key and secret </li>	
+<li> Fill in the "xxxxxxx" with your key and secrets </li>
+<li> Run the code with the following command </li>	
+</ol>
+
+<pre>
+<code>python main.py</code>
+</pre>
  
 <p> Data will be written/appended to an output file in CSV format (out.csv) </p>
 
