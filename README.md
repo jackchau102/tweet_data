@@ -1,41 +1,52 @@
-<h1> Tweet Data </h1>
-
-<h2> Data visualization </h2>
-
 ![Twitter data generated so far using Kepler.gl](/usatwitter.png)
 
-<h2> Description </h2>
+<h1>How to set up and run the scraper from your local machine</h1>
 
-<p> This is a script that when run, will query the entire US and collect
-	geo-data from tweeter users.</p>
-	
-<p> To run the code </p>
+<h2>Setting up an anaconda environment</h2>
 
-<ol> 
-<li> Download the file </li>
-<li> Sign up for a Twitter Developer Account to receive the key and secret </li>	
-<li> Fill in the "xxxxxxx" with your key and secrets </li>
-<li> Run the code with the following command </li>	
-</ol>
+1. Install anaconda using the following link: "https://docs.anaconda.com/anaconda/install/"
 
-<pre>
-<code>python main.py</code>
-</pre>
- 
-<p> Data will be written/appended to an output file in CSV format (out.csv) </p>
+2. Create an environment from the .yml file (note: this is only applicable for Mac OS). If you are using a different OS, manually install the dependencies needed for the python script
 
-<p> Type of data: </p>
+```conda env create --file twitter_env.yml```
 
-<ul> 
+3. Activate the environment
 
-<li> User ID </li>
-<li> User Tweet Content </li>
-<li> Geo LONG </li>
-<li> Geo LAT </li>
+```source activate twitter_env```
 
+<h2>Running the bash script</h2>
+
+The bash script runs and logs error to an error.txt file. This is to help with debugging when needed.
+
+To run the bash script, follow these steps: 
+
+1. Grant permission for machine to read and execute the bash script. In the local directory terminal: 
+
+```chmod r+x call_and_log```
+
+2. Run the bash script
+
+```./call_and_log```
+
+<h2> A few notes on the CSV file produced </h2>
+
+1. The output does not include column names. The column names are in the following order:
+
+<ul>
+    <li>User ID</li>
+    <li>User tweet</li>
+    <li>Tweet creation time</li>
+    <li>Latitude</li>
+    <li>Longitude</li>
 </ul>
 
-<h2> Usage </h2>
+2. Currently, it is best to set up the scraper on a virtual machine to save space on your local machine. To do this, create a VM and clone the files onto that machine.
 
-<p> This script is currently being implemented in Prof. Shan Jiang research group at Tufts University
-</p>
+3. To keep the script running, consider using nohup
+
+```
+nohup ./call_and_log //run the bash script in the background
+cat nohup.out //print out to shell console the result of the bash script
+``` 
+
+4. nohup will keep the script running on your VM even after you exit
